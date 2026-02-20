@@ -1,0 +1,24 @@
+name: Animated Greetings Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Typing Animation
+        run: |
+          echo "Starting Animation..."
+          sleep 1
+          text="Welcome to GitHub Workflows!"
+          for (( i=0; i<${#text}; i++ )); do
+            echo -n "${text:$i:1}"
+            sleep 0.1
+          done
+          echo ""
+          sleep 1
+          echo "Workflow executed successfully!"
