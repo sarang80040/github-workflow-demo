@@ -22,3 +22,17 @@ jobs:
           echo ""
           sleep 1
           echo "Workflow executed successfully!"
+
+      - name: Spinning Loader Animation
+        run: |
+          spinner='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+          echo "Loading something awesome..."
+          for round in 1 2 3; do
+            for (( i=0; i<${#spinner}; i++ )); do
+              printf "\r  ${spinner:$i:1} Processing... [Round $round/3]"
+              sleep 0.15
+            done
+          done
+          printf "\r  ᯓ★ All rounds complete.      \n"
+          echo ""
+          echo "ʕ⁠っ⁠•⁠ᴥ⁠•⁠ʔ⁠っ Spinning loader finished successfully!"
